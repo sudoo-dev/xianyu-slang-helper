@@ -1,6 +1,14 @@
 title: 闲鱼词典
-description: Chrome 扩展, 解决闲鱼暗语搜不到看不懂的问题
+description: Chrome 浏览器扩展 · 一秒读懂闲鱼卖家的隐讳用语 · 完全本地运行
 theme: jekyll-theme-minimal
+lang: zh-CN
 markdown: kramdown
 plugins:
   - jekyll-relative-links
+
+# 兼容性设置, 让 docs/ 里子目录的相对链接能正确解析
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - privacy.md
