@@ -1,0 +1,6 @@
+title: 闲鱼黑话助手
+description: Chrome 扩展, 解决闲鱼黑话搜不到看不懂的问题
+theme: jekyll-theme-minimal
+markdown: kramdown
+plugins:
+  - jekyll-relative-links

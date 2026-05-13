@@ -1,0 +1,330 @@
+/* 闲鱼黑话助手 - 内容样式 */
+
+#xy-slang-panel {
+  position: absolute;
+  z-index: 2147483647;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 13px;
+  color: #222;
+  overflow: hidden;
+  max-width: 420px;
+  max-height: 360px;
+  display: flex;
+  flex-direction: column;
+}
+
+#xy-slang-panel .xy-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, #ffe1cc 0%, #ffd4a8 100%);
+  border-bottom: 1px solid #f0e0d0;
+}
+
+#xy-slang-panel .xy-panel-title {
+  font-weight: 600;
+  color: #c8541f;
+  font-size: 13px;
+}
+
+#xy-slang-panel .xy-panel-close {
+  cursor: pointer;
+  color: #888;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 4px;
+  user-select: none;
+}
+
+#xy-slang-panel .xy-panel-close:hover {
+  color: #333;
+}
+
+#xy-slang-panel .xy-panel-body {
+  padding: 8px 12px 12px;
+  overflow-y: auto;
+  max-height: 320px;
+}
+
+#xy-slang-panel .xy-panel-hint {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+#xy-slang-panel .xy-slang-group {
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #f0f0f0;
+}
+
+#xy-slang-panel .xy-slang-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+#xy-slang-panel .xy-slang-normal {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+#xy-slang-panel .xy-slang-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+#xy-slang-panel .xy-slang-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #fff5ec;
+  color: #c8541f;
+  border: 1px solid #ffd4a8;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+#xy-slang-panel .xy-slang-tag:hover {
+  background: #ffb366;
+  color: #fff;
+  border-color: #ffb366;
+  transform: translateY(-1px);
+}
+
+/* 黑话高亮 */
+.xy-slang-mark {
+  background: linear-gradient(transparent 60%, #fff2c4 60%);
+  border-bottom: 1px dotted #e6a23c;
+  cursor: help;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
+.xy-slang-mark:hover {
+  background: #fff2c4;
+}
+
+/* 自定义词条 - 蓝色变体 */
+.xy-slang-mark-custom {
+  background: linear-gradient(transparent 60%, #d6e4ff 60%);
+  border-bottom: 1px dotted #3b82f6;
+}
+.xy-slang-mark-custom:hover {
+  background: #d6e4ff;
+}
+
+/* Tooltip */
+/* 详情页 FAB + 侧滑面板 */
+#xy-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff8c42 0%, #ffb366 100%);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(200, 84, 31, 0.35);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483646;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#xy-fab:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 10px 28px rgba(200, 84, 31, 0.45);
+}
+
+#xy-fab .xy-fab-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+#xy-fab .xy-fab-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 10px;
+  background: #fff;
+  color: #c8541f;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ff8c42;
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+#xy-detail-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 340px;
+  background: #fff;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+  z-index: 2147483647;
+  transform: translateX(105%);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 13px;
+  color: #222;
+}
+
+#xy-detail-panel.xy-open {
+  transform: translateX(0);
+}
+
+#xy-detail-panel .xy-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #ff8c42 0%, #ffb366 100%);
+  color: #fff;
+}
+
+#xy-detail-panel .xy-detail-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#xy-detail-panel .xy-detail-close {
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  padding: 0 4px;
+  opacity: 0.85;
+  user-select: none;
+}
+
+#xy-detail-panel .xy-detail-close:hover {
+  opacity: 1;
+}
+
+#xy-detail-panel .xy-detail-stats {
+  padding: 10px 16px;
+  font-size: 12px;
+  color: #888;
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+}
+
+#xy-detail-panel .xy-detail-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 12px 16px;
+}
+
+#xy-detail-panel .xy-detail-empty {
+  color: #bbb;
+  font-size: 12px;
+  text-align: center;
+  padding: 24px 16px;
+}
+
+#xy-detail-panel .xy-detail-entry {
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+#xy-detail-panel .xy-detail-entry:hover {
+  background: #fff5ec;
+  border-color: #ffd4a8;
+  transform: translateX(-2px);
+}
+
+#xy-detail-panel .xy-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+#xy-detail-panel .xy-detail-slang {
+  font-weight: 600;
+  color: #c8541f;
+  font-size: 13px;
+}
+
+#xy-detail-panel .xy-detail-arrow {
+  color: #ccc;
+  font-size: 12px;
+}
+
+#xy-detail-panel .xy-detail-meaning {
+  flex: 1;
+  color: #333;
+  font-size: 12px;
+  min-width: 0;
+  word-break: break-word;
+}
+
+#xy-detail-panel .xy-detail-count {
+  background: #ff8c42;
+  color: #fff;
+  font-size: 10px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+#xy-detail-panel .xy-detail-sample {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #999;
+  font-style: italic;
+  line-height: 1.5;
+  border-left: 2px solid #ffd4a8;
+  padding-left: 8px;
+}
+
+.xy-slang-flash {
+  animation: xy-flash 1.2s ease-out;
+}
+@keyframes xy-flash {
+  0% { background: #fff2c4; box-shadow: 0 0 0 4px rgba(255, 140, 66, 0.4); }
+  100% { background: transparent; box-shadow: 0 0 0 4px transparent; }
+}
+
+#xy-slang-tooltip {
+  position: absolute;
+  z-index: 2147483647;
+  background: rgba(35, 35, 35, 0.95);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  max-width: 280px;
+  line-height: 1.5;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
