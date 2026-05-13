@@ -1,10 +1,10 @@
 ---
 layout: default
-title: 闲鱼搜索助手
+title: 闲鱼词典
 permalink: /
 ---
 
-# 🐟 闲鱼搜索助手
+# 🐟 闲鱼词典
 
 Chrome 浏览器扩展，帮你解决闲鱼上的"暗语搜不到、看不懂"问题。
 

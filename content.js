@@ -1,4 +1,4 @@
-// 闲鱼搜索助手 - 内容脚本
+// 闲鱼词典 - 内容脚本
 (function () {
   "use strict";
 
@@ -24,7 +24,7 @@
     panel.style.display = "none";
     panel.innerHTML = `
       <div class="xy-panel-header">
-        <span class="xy-panel-title">闲鱼搜索助手</span>
+        <span class="xy-panel-title">闲鱼词典</span>
         <span class="xy-panel-close">×</span>
       </div>
       <div class="xy-panel-body">

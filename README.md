@@ -1,4 +1,4 @@
-# 闲鱼搜索助手 (Xianyu Search Assistant)
+# 闲鱼词典 (Xianyu Dictionary)
 
 Chrome / Edge 浏览器扩展，帮你解决闲鱼上的"暗语搜不到、看不懂"问题：
 

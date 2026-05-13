@@ -4,12 +4,12 @@
 
 **中文（推荐）**：
 ```
-闲鱼搜索助手 — 搜索翻译 + 暗语解读
+闲鱼词典 — 搜索翻译 + 暗语解读
 ```
 
 **English alternative**：
 ```
-Xianyu Search Assistant — Search & Decode
+Xianyu Dictionary — Search & Decode
 ```
 
 ---
@@ -38,7 +38,7 @@ Decode coded slang on Xianyu/Goofish. Suggests jargon for search; highlights and
 ## Detailed Description (限定 16,000 字符)
 
 ```
-🐟 闲鱼搜索助手 — 搜索 / 解读 / 词典 三位一体
+🐟 闲鱼词典 — 搜索 / 解读 / 词典 三位一体
 
 闲鱼上很多卖家用谐音、缩写、绰号规避平台关键词过滤，普通买家搜不到目标，看不懂描述。
 本插件用一份精心整理的暗语词典（覆盖电子产品 / 奢侈品 / 烟酒 / 球鞋 / 潮玩 / 谷圈 / 游戏账号 / 成色 / 议价 / 防坑 / 渠道 / 营销 等 15 个分类，共 159 个词条 / 489 个变体）解决这两个问题。
@@ -85,7 +85,7 @@ https://github.com/sudoo-dev/xianyu-slang-helper
 ## English Detailed Description (alternative)
 
 ```
-🐟 Xianyu Search Assistant — Search · Decode · Custom Dictionary
+🐟 Xianyu Dictionary — Search · Decode · Custom Dictionary
 
 Many Xianyu (Goofish) sellers use coded jargon (homophones, abbreviations, nicknames) to evade keyword filters. Ordinary buyers can't search effectively or understand listings. This extension solves both with a curated 159-entry / 489-variant slang dictionary spanning 15 categories: electronics, luxury, tobacco/alcohol, sneakers, designer toys, anime merch, gaming accounts, condition grades, negotiation phrases, anti-scam markers, sourcing claims, marketing speak, transaction terms, trading cards, and AI services.
 

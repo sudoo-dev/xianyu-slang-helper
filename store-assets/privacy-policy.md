@@ -1,4 +1,4 @@
-# Privacy Policy — 闲鱼搜索助手 (Xianyu Search Assistant)
+# Privacy Policy — 闲鱼词典 (Xianyu Dictionary)
 
 **Last updated: 2026-05-13**
 **Extension version: 1.6.0**

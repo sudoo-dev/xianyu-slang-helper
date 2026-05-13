@@ -1,5 +1,5 @@
 {
-  "version": "1.7.0",
+  "version": "1.7.1",
   "updatedAt": "2026-05-13",
   "notes": "维护者编辑此文件后, 运行 `node tools/encrypt-dict.mjs` 生成 data/dictionary.enc.json. 此 source 文件本身不会被打包进发布包(可选: 加入 .gitignore 或 .vscodeignore).",
   "categories": [
