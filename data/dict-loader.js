@@ -217,7 +217,7 @@
       if (normal.toLowerCase() === lower) pushOnce(normal, true);
     }
 
-    // 2) 用户输入正好是某个黑话 → 返回其归属的所有 normal
+    // 2) 用户输入正好是某个暗语 → 返回其归属的所有 normal
     for (const slang of Object.keys(_reverse)) {
       if (slang.toLowerCase() === lower) {
         for (const normal of _reverse[slang]) pushOnce(normal, false, slang);
@@ -232,7 +232,7 @@
       }
     }
 
-    // 4) 任何黑话含输入 / 输入含某黑话 → 关联到对应 normal
+    // 4) 任何暗语含输入 / 输入含某暗语 → 关联到对应 normal
     for (const slang of Object.keys(_reverse)) {
       const sl = slang.toLowerCase();
       if (sl.includes(lower) || (lower.length >= 2 && lower.includes(sl))) {

@@ -1,4 +1,4 @@
-/* 闲鱼黑话助手 - 内容样式 */
+/* 闲鱼搜索助手 - 内容样式 */
 
 #xy-slang-panel {
   position: absolute;
@@ -101,7 +101,7 @@
   transform: translateY(-1px);
 }
 
-/* 黑话高亮 */
+/* 暗语高亮 */
 .xy-slang-mark {
   background: linear-gradient(transparent 60%, #fff2c4 60%);
   border-bottom: 1px dotted #e6a23c;

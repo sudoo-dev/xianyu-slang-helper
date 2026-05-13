@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>闲鱼黑话助手</title>
+  <title>闲鱼搜索助手</title>
   <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
@@ -10,8 +10,8 @@
     <header class="header">
       <div class="logo">🐟</div>
       <div class="title">
-        <div class="title-main">闲鱼黑话助手</div>
-        <div class="title-sub" id="title-sub">搜索翻译 / 黑话解读</div>
+        <div class="title-main">闲鱼搜索助手</div>
+        <div class="title-sub" id="title-sub">搜索翻译 / 暗语解读</div>
       </div>
     </header>
 
@@ -28,15 +28,15 @@
         <div class="input-wrap">
           <textarea
             id="translate-input"
-            placeholder="输入正常词查黑话，或粘贴商品标题/描述解读黑话..."
+            placeholder="输入正常词查暗语，或粘贴商品标题/描述解读暗语..."
             rows="3"
           ></textarea>
           <button class="clear-btn" id="clear-btn" title="清空">×</button>
         </div>
 
         <div class="action-row">
-          <button class="btn btn-primary" id="btn-to-slang">→ 转黑话</button>
-          <button class="btn" id="btn-to-normal">← 解读黑话</button>
+          <button class="btn btn-primary" id="btn-to-slang">→ 转暗语</button>
+          <button class="btn" id="btn-to-normal">← 解读暗语</button>
         </div>
 
         <div class="result" id="result-area">
@@ -58,7 +58,7 @@
       <section class="panel" id="panel-custom">
         <div class="custom-form">
           <input type="text" id="custom-normal" placeholder="正常词，如：路由器" />
-          <input type="text" id="custom-slangs" placeholder="黑话变体（逗号或空格分隔）" />
+          <input type="text" id="custom-slangs" placeholder="暗语变体（逗号或空格分隔）" />
           <div class="custom-form-actions">
             <button class="btn btn-primary" id="btn-custom-add">+ 添加</button>
             <button class="btn" id="btn-custom-cancel" style="display:none">取消</button>
@@ -102,8 +102,8 @@
 
         <div class="setting-row">
           <div class="setting-info">
-            <div class="setting-name">页面黑话高亮</div>
-            <div class="setting-desc">在闲鱼页面给已知黑话加下划线提示</div>
+            <div class="setting-name">页面暗语高亮</div>
+            <div class="setting-desc">在闲鱼页面给已知暗语加下划线提示</div>
           </div>
           <label class="switch">
             <input type="checkbox" id="setting-decode" />
@@ -114,9 +114,9 @@
         <div class="about">
           <div class="about-title">💡 使用说明</div>
           <ul>
-            <li>在闲鱼搜索框输入关键词，自动弹出黑话推荐</li>
+            <li>在闲鱼搜索框输入关键词，自动弹出暗语推荐</li>
             <li>点击推荐词替换搜索框内容</li>
-            <li>商品标题/描述里的黑话会标黄，悬停看含义</li>
+            <li>商品标题/描述里的暗语会标黄，悬停看含义</li>
             <li>词典页可按分类筛选浏览</li>
             <li>插件不发起外部请求，全部本地运行</li>
           </ul>

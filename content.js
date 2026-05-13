@@ -1,4 +1,4 @@
-// 闲鱼黑话助手 - 内容脚本
+// 闲鱼搜索助手 - 内容脚本
 (function () {
   "use strict";
 
@@ -24,11 +24,11 @@
     panel.style.display = "none";
     panel.innerHTML = `
       <div class="xy-panel-header">
-        <span class="xy-panel-title">闲鱼黑话助手</span>
+        <span class="xy-panel-title">闲鱼搜索助手</span>
         <span class="xy-panel-close">×</span>
       </div>
       <div class="xy-panel-body">
-        <div class="xy-panel-hint">点击下方黑话替换搜索词</div>
+        <div class="xy-panel-hint">点击下方暗语替换搜索词</div>
         <div class="xy-slang-list"></div>
       </div>
     `;
@@ -156,7 +156,7 @@
     }, true);
   }
 
-  // ============ 黑话解读 Tooltip ============
+  // ============ 暗语解读 Tooltip ============
   let tooltip = null;
 
   function createTooltip() {
@@ -187,7 +187,7 @@
   // 跳过明显是复合词一部分的短词匹配
   // - 1 字 CJK 在中文复合词中: 如 "山谷" 里的 "谷"
   // - ≤3 字 Latin/数字 在更长词中: 如 "iPhone" 里的 "ip"
-  // 2 字以上 CJK 合法黑话 (如 "勿扰" "小刀") 不受影响
+  // 2 字以上 CJK 合法暗语 (如 "勿扰" "小刀") 不受影响
   function shouldSkipMatch(text, idx, slang) {
     const before = idx > 0 ? text[idx - 1] : "";
     const after = idx + slang.length < text.length ? text[idx + slang.length] : "";
@@ -228,7 +228,7 @@
       span.className = isCustom ? "xy-slang-mark xy-slang-mark-custom" : "xy-slang-mark";
       span.textContent = slang;
       span.addEventListener("mouseenter", () => {
-        const prefix = isCustom ? "我的词典: " : "黑话: ";
+        const prefix = isCustom ? "我的词典: " : "暗语: ";
         showTooltip(span, `${prefix}${slang} → ${meanings.join(" / ")}`);
       });
       span.addEventListener("mouseleave", hideTooltip);
@@ -293,7 +293,7 @@
     if (fab) return;
     fab = document.createElement("div");
     fab.id = "xy-fab";
-    fab.title = "查看本页全部黑话";
+    fab.title = "查看本页全部暗语";
     fab.innerHTML = `
       <span class="xy-fab-icon">🔍</span>
       <span class="xy-fab-count">0</span>
@@ -305,7 +305,7 @@
     detailPanel.id = "xy-detail-panel";
     detailPanel.innerHTML = `
       <div class="xy-detail-header">
-        <span class="xy-detail-title">本页黑话解读</span>
+        <span class="xy-detail-title">本页暗语解读</span>
         <span class="xy-detail-close">×</span>
       </div>
       <div class="xy-detail-stats"></div>
@@ -353,13 +353,13 @@
     const bodyEl = detailPanel.querySelector(".xy-detail-body");
 
     if (items.length === 0) {
-      statsEl.textContent = "未在本页检测到黑话";
+      statsEl.textContent = "未在本页检测到暗语";
       bodyEl.innerHTML = "<div class='xy-detail-empty'>把鼠标移到页面上其它有下划线的词查看含义</div>";
       return;
     }
     const totalUnique = items.length;
     const totalHits = items.reduce((s, [, v]) => s + v.count, 0);
-    statsEl.textContent = `共 ${totalUnique} 个黑话 / ${totalHits} 处出现`;
+    statsEl.textContent = `共 ${totalUnique} 个暗语 / ${totalHits} 处出现`;
 
     bodyEl.innerHTML = items.map(([slang, info]) => {
       const sample = info.samples[0]

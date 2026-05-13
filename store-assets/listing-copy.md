@@ -4,12 +4,12 @@
 
 **中文（推荐）**：
 ```
-闲鱼黑话助手 — 搜索翻译 + 黑话解读
+闲鱼搜索助手 — 搜索翻译 + 暗语解读
 ```
 
 **English alternative**：
 ```
-Xianyu Slang Helper — Search & Decode
+Xianyu Search Assistant — Search & Decode
 ```
 
 ---
@@ -18,7 +18,7 @@ Xianyu Slang Helper — Search & Decode
 
 **中文**：
 ```
-帮你在闲鱼/咸鱼搜索时自动建议黑话关键词；浏览商品时高亮并解读标题/描述里的隐晦用语。本地运行，零数据收集。
+帮你在闲鱼/咸鱼搜索时自动建议暗语关键词；浏览商品时高亮并解读标题/描述里的隐晦用语。本地运行，零数据收集。
 ```
 （61 字符）
 
@@ -38,19 +38,19 @@ Decode coded slang on Xianyu/Goofish. Suggests jargon for search; highlights and
 ## Detailed Description (限定 16,000 字符)
 
 ```
-🐟 闲鱼黑话助手 — 搜索 / 解读 / 词典 三位一体
+🐟 闲鱼搜索助手 — 搜索 / 解读 / 词典 三位一体
 
 闲鱼上很多卖家用谐音、缩写、绰号规避平台关键词过滤，普通买家搜不到目标，看不懂描述。
-本插件用一份精心整理的黑话词典（覆盖电子产品 / 奢侈品 / 烟酒 / 球鞋 / 潮玩 / 谷圈 / 游戏账号 / 成色 / 议价 / 防坑 / 渠道 / 营销 等 15 个分类，共 159 个词条 / 489 个变体）解决这两个问题。
+本插件用一份精心整理的暗语词典（覆盖电子产品 / 奢侈品 / 烟酒 / 球鞋 / 潮玩 / 谷圈 / 游戏账号 / 成色 / 议价 / 防坑 / 渠道 / 营销 等 15 个分类，共 159 个词条 / 489 个变体）解决这两个问题。
 
 ═════════ 功能 ═════════
 
-🔍 搜索时自动建议黑话
-在闲鱼搜索框输入正常关键词（如 iPhone / 茅台 / 周边），自动弹出对应黑话推荐（艾疯 / 猫腻 / 谷子...），点击直接替换。同时支持反向：输入黑话也能找到关联兄弟变体。
+🔍 搜索时自动建议暗语
+在闲鱼搜索框输入正常关键词（如 iPhone / 茅台 / 周边），自动弹出对应暗语推荐（艾疯 / 猫腻 / 谷子...），点击直接替换。同时支持反向：输入暗语也能找到关联兄弟变体。
 
 ✨ 商品页自动解读
-商品标题 / 描述中的已知黑话会自动加下划线高亮，鼠标悬停显示真实含义。
-右下角浮动按钮一键打开侧滑面板，按出现频次列出本页所有黑话，点击条目可直接定位。
+商品标题 / 描述中的已知暗语会自动加下划线高亮，鼠标悬停显示真实含义。
+右下角浮动按钮一键打开侧滑面板，按出现频次列出本页所有暗语，点击条目可直接定位。
 
 📚 完整词典浏览
 弹窗内可按 15 个分类筛选浏览，全文搜索支持词条与变体双向查询。
@@ -85,7 +85,7 @@ https://github.com/sudoo-dev/xianyu-slang-helper
 ## English Detailed Description (alternative)
 
 ```
-🐟 Xianyu Slang Helper — Search · Decode · Custom Dictionary
+🐟 Xianyu Search Assistant — Search · Decode · Custom Dictionary
 
 Many Xianyu (Goofish) sellers use coded jargon (homophones, abbreviations, nicknames) to evade keyword filters. Ordinary buyers can't search effectively or understand listings. This extension solves both with a curated 159-entry / 489-variant slang dictionary spanning 15 categories: electronics, luxury, tobacco/alcohol, sneakers, designer toys, anime merch, gaming accounts, condition grades, negotiation phrases, anti-scam markers, sourcing claims, marketing speak, transaction terms, trading cards, and AI services.
 
@@ -172,4 +172,4 @@ Primary: **Chinese (Simplified)** zh_CN — 主要用户是中文用户
 
 ## Search Keywords (用于发现性)
 
-闲鱼, 咸鱼, goofish, xianyu, 二手, 黑话, 暗语, slang, 翻译, 解读, 谷圈, 球鞋, 议价, 防坑
+闲鱼, 咸鱼, goofish, xianyu, 二手, 暗语, 暗语, slang, 翻译, 解读, 谷圈, 球鞋, 议价, 防坑

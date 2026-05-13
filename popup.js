@@ -53,7 +53,7 @@
     const matches = await self.XYDict.suggestSlangsFor(text);
     if (matches.length === 0) {
       resultArea.innerHTML = renderEmptyWithAI(
-        `词典中没有找到 "${escapeHtml(text)}" 的黑话`,
+        `词典中没有找到 "${escapeHtml(text)}" 的暗语`,
         "试试更通用的词，或在\"词典\"页浏览所有分类",
         text,
         "to-slang"
@@ -84,7 +84,7 @@
     const found = await self.XYDict.decodeText(text);
     if (found.length === 0) {
       resultArea.innerHTML = renderEmptyWithAI(
-        "未在文本中检测到已知黑话",
+        "未在文本中检测到已知暗语",
         "可能是新词或词典暂未收录",
         text,
         "to-normal"
@@ -96,7 +96,7 @@
     found.forEach(({ slang, meanings }) => {
       html += `
         <div class="result-group">
-          <div class="result-normal">黑话: <strong>${escapeHtml(slang)}</strong></div>
+          <div class="result-normal">暗语: <strong>${escapeHtml(slang)}</strong></div>
           <div class="result-tags">
             ${meanings.map((s) => `<span class="result-tag" data-copy="${escapeHtml(s)}">${escapeHtml(s)}</span>`).join("")}
           </div>
@@ -169,8 +169,8 @@
       ].filter(Boolean).join("\n\n");
 
       const sysPrompt = direction === "to-slang"
-        ? `你是闲鱼二手交易平台的黑话翻译助手。用户给你一个正常关键词, 参考下面的内置词典, 给出在闲鱼上卖家会用到的 1-5 个隐晦同义词/谐音/缩写, 用顿号分隔, 不要解释。如果词典里已有, 优先复用词典里的写法; 没有时按词典风格扩展。\n\n${ctxBlock}`
-        : `你是闲鱼二手交易平台的黑话解读助手。用户给你一段商品文字或黑话词, 参考下面的内置词典, 用一句话指出其中可疑/隐晦词的真实含义。如果词典里有, 直接引用词典释义; 词典里没有但风格相似, 按词典逻辑推测。完全是正常用语就回答"没有可疑黑话"。\n\n${ctxBlock}`;
+        ? `你是闲鱼二手交易平台的暗语翻译助手。用户给你一个正常关键词, 参考下面的内置词典, 给出在闲鱼上卖家会用到的 1-5 个隐晦同义词/谐音/缩写, 用顿号分隔, 不要解释。如果词典里已有, 优先复用词典里的写法; 没有时按词典风格扩展。\n\n${ctxBlock}`
+        : `你是闲鱼二手交易平台的暗语解读助手。用户给你一段商品文字或暗语词, 参考下面的内置词典, 用一句话指出其中可疑/隐晦词的真实含义。如果词典里有, 直接引用词典释义; 词典里没有但风格相似, 按词典逻辑推测。完全是正常用语就回答"没有可疑暗语"。\n\n${ctxBlock}`;
 
       const session = await LanguageModel.create({
         temperature: 0.4,
@@ -385,7 +385,7 @@
       return;
     }
     if (slangs.length === 0) {
-      showCustomMsg("请填写至少一个黑话变体", "error");
+      showCustomMsg("请填写至少一个暗语变体", "error");
       customSlangs.focus();
       return;
     }
@@ -453,13 +453,13 @@
         entries = data.entries || data;
       }
       if (!entries || typeof entries !== "object") {
-        throw new Error("JSON 格式应为 {entries: {...}} 或直接的 {正常词: [黑话]} 对象");
+        throw new Error("JSON 格式应为 {entries: {...}} 或直接的 {正常词: [暗语]} 对象");
       }
       const existing = (await self.XYDict.getCustomDict()).entries;
       const hasExisting = Object.keys(existing).length > 0;
       let merged;
       if (hasExisting) {
-        const choice = confirm("已存在自定义词条。\n确认 = 合并 (相同正常词的黑话取并集)\n取消 = 不导入");
+        const choice = confirm("已存在自定义词条。\n确认 = 合并 (相同正常词的暗语取并集)\n取消 = 不导入");
         if (!choice) return;
         merged = { ...existing };
         for (const [k, v] of Object.entries(entries)) {

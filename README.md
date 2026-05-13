@@ -1,9 +1,9 @@
-# 闲鱼黑话助手 (Xianyu Slang Helper)
+# 闲鱼搜索助手 (Xianyu Search Assistant)
 
-Chrome / Edge 浏览器扩展，帮你解决闲鱼上的"黑话搜不到、看不懂"问题：
+Chrome / Edge 浏览器扩展，帮你解决闲鱼上的"暗语搜不到、看不懂"问题：
 
-- **搜索词翻译**：闲鱼搜索框输入正常词（`iPhone`、`茅台`、`谷子`），自动弹出对应黑话推荐，点击直接替换。
-- **黑话解读**：商品标题/描述里的黑话自动加下划线高亮，悬停看含义。
+- **搜索词翻译**：闲鱼搜索框输入正常词（`iPhone`、`茅台`、`谷子`），自动弹出对应暗语推荐，点击直接替换。
+- **暗语解读**：商品标题/描述里的暗语自动加下划线高亮，悬停看含义。
 - **独立翻译面板**：粘贴任意文本，正反向翻译，点击复制。
 - **分类浏览**：12 个分类（电子产品/奢侈品/烟酒/球鞋/潮玩/谷圈/游戏账号/成色/议价/防坑/交易/卡牌），可按分类筛选。
 - **加密打包 🔒**：词典使用 AES-256-GCM 加密，scraper 无法 `grep` 出明文。
@@ -13,9 +13,9 @@ Chrome / Edge 浏览器扩展，帮你解决闲鱼上的"黑话搜不到、看�
 
 - 12 分类
 - 130 条目
-- 372 个黑话变体
+- 372 个暗语变体
 
-来源：知乎、Linux.do、X / Twitter、谷圈科普文等公开内容。**只收录二手交易类**黑话，不含涉违法暗号。
+来源：知乎、Linux.do、X / Twitter、谷圈科普文等公开内容。**只收录二手交易类**暗语，不含涉违法暗号。
 
 ## 加密设计
 
@@ -99,7 +99,7 @@ node tools/encrypt-dict.mjs
 xianyu-slang-helper/
 ├── manifest.json                # MV3
 ├── background.js                # Service worker (仅初始化设置)
-├── content.js                   # 内容脚本: 搜索气泡 + 黑话高亮
+├── content.js                   # 内容脚本: 搜索气泡 + 暗语高亮
 ├── content.css
 ├── popup.html / popup.css / popup.js
 ├── data/
@@ -123,13 +123,13 @@ xianyu-slang-helper/
 
 ## 来源致谢
 
-- [闲鱼"黑话"你知道吗？(知乎)](https://zhuanlan.zhihu.com/p/112140534)
+- [闲鱼"暗语"你知道吗？(知乎)](https://zhuanlan.zhihu.com/p/112140534)
 - [大众版暗网？闲鱼APP上的暗语 (环信)](https://www.easemob.com/news/8996)
 - [闲鱼有哪些常见的术语和暗语？ (红草笔记)](https://www.redcao.com/archives/18810.html)
-- [可以分享你知道的闲鱼黑话吗 (Linux.do)](https://linux.do/t/topic/972037)
+- [可以分享你知道的闲鱼暗语吗 (Linux.do)](https://linux.do/t/topic/972037)
 - [谷圈名词科普 (知乎)](https://zhuanlan.zhihu.com/p/119634849)
-- [全是"黑话"的谷圈 (界面新闻)](https://www.jiemian.com/article/6953041.html)
-- [r/goofish 闲鱼黑话字典分享 (Reddit)](https://www.reddit.com/r/goofish/comments/1ps0bnt/) — 待并入（受 Reddit 反爬限制，需手工提取）
+- [全是"暗语"的谷圈 (界面新闻)](https://www.jiemian.com/article/6953041.html)
+- [r/goofish 闲鱼暗语字典分享 (Reddit)](https://www.reddit.com/r/goofish/comments/1ps0bnt/) — 待并入（受 Reddit 反爬限制，需手工提取）
 
 ## License
 

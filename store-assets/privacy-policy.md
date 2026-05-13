@@ -1,4 +1,4 @@
-# Privacy Policy — 闲鱼黑话助手 (Xianyu Slang Helper)
+# Privacy Policy — 闲鱼搜索助手 (Xianyu Search Assistant)
 
 **Last updated: 2026-05-13**
 **Extension version: 1.6.0**
@@ -71,7 +71,7 @@ For questions, bug reports, or removal requests:
 
 | 项 | 用途 |
 |----|------|
-| `decodeEnabled` | 页面黑话高亮的开关状态 |
+| `decodeEnabled` | 页面暗语高亮的开关状态 |
 | `customDict` | 你通过"我的词典"标签手动添加的自定义词条 |
 
 这些数据仅在你本机。卸载插件即清除。
