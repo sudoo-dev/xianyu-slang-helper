@@ -1,0 +1,93 @@
+# 发布到 Chrome Web Store
+#
+# 触发: 推送形如 v1.7.2 的 tag (默认上传为草稿, 不自动提交审核);
+#       或手动 workflow_dispatch (可勾选 publish=true 直接提交审核)。
+# 一次性配置见 .github/RELEASING.md。
+#
+# 设计取舍: tag 触发默认只「上传草稿」, 不自动发布——因为词典含擦边词,
+# 一个 tag 不应直接把未经人工过目的内容推给所有用户。最后在商店后台点
+# 发布 (或手动跑本工作流并勾 publish) 才真正提交审核。
+
+name: Release to Chrome Web Store
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "提交审核 (true) 还是只上传草稿 (false)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write # 用于把 zip 附到 GitHub Release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 校验版本一致 (tag == manifest == source)
+        run: |
+          MANIFEST_VER=$(node -p "require('./manifest.json').version")
+          SOURCE_VER=$(node -p "require('./tools/dictionary.source.json').version")
+          echo "manifest=$MANIFEST_VER  source=$SOURCE_VER  ref=$GITHUB_REF_NAME"
+          if [ "$MANIFEST_VER" != "$SOURCE_VER" ]; then
+            echo "::error::manifest ($MANIFEST_VER) 与 source ($SOURCE_VER) 版本不一致"; exit 1
+          fi
+          if [ "$GITHUB_REF_TYPE" = "tag" ]; then
+            TAG_VER="${GITHUB_REF_NAME#v}"
+            if [ "$TAG_VER" != "$MANIFEST_VER" ]; then
+              echo "::error::tag ($TAG_VER) 与 manifest ($MANIFEST_VER) 不一致——先 bump 版本再打 tag"; exit 1
+            fi
+          fi
+
+      - name: 校验 Secrets 已配置
+        env:
+          EXT: ${{ secrets.CHROME_EXTENSION_ID }}
+          CID: ${{ secrets.CHROME_CLIENT_ID }}
+          CSECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          RTOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+        run: |
+          missing=""
+          [ -z "$EXT" ] && missing="$missing CHROME_EXTENSION_ID"
+          [ -z "$CID" ] && missing="$missing CHROME_CLIENT_ID"
+          [ -z "$CSECRET" ] && missing="$missing CHROME_CLIENT_SECRET"
+          [ -z "$RTOKEN" ] && missing="$missing CHROME_REFRESH_TOKEN"
+          if [ -n "$missing" ]; then
+            echo "::error::缺少 Secrets:$missing —— 配置方法见 .github/RELEASING.md"; exit 1
+          fi
+
+      - name: 构建扩展包 (加密 + 安全检查)
+        run: node tools/package.mjs
+
+      - name: 打包 zip (manifest 必须在 zip 根目录)
+        run: |
+          cd dist/xianyu-slang-helper
+          zip -qr ../xianyu-slang-helper.zip .
+          cd ../..
+          echo "zip 内容顶层:"; unzip -l dist/xianyu-slang-helper.zip | head -15
+
+      - name: 上传到 Chrome Web Store
+        uses: mnao305/chrome-webstore-upload@v5
+        with:
+          file-path: dist/xianyu-slang-helper.zip
+          extension-id: ${{ secrets.CHROME_EXTENSION_ID }}
+          client-id: ${{ secrets.CHROME_CLIENT_ID }}
+          client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
+          refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
+          # tag 触发 = 仅上传草稿; 手动触发可勾 publish 提交审核
+          publish: ${{ github.event_name == 'workflow_dispatch' && inputs.publish }}
+
+      - name: 把 zip 附到 GitHub Release
+        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/xianyu-slang-helper.zip
+          generate_release_notes: true
