@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 闲鱼词典 · 闲鱼黑话/暗语翻译 Chrome 扩展
-description: 一秒读懂闲鱼黑话！Chrome 插件帮你搜得到、看得懂卖家用的谐音/缩写/绰号。15 个分类、159 词条、本地运行、零数据收集。
+description: 一秒读懂闲鱼黑话！Chrome 插件帮你搜得到、看得懂卖家用的谐音/缩写/绰号。16 个分类、193 词条、本地运行、零数据收集。
 keywords: 闲鱼黑话, 闲鱼暗语, 闲鱼词典, 闲鱼翻译, 黑话翻译, 闲鱼搜索, 闲鱼插件, 二手交易黑话, goofish, xianyu
 permalink: /
 image: /screenshots/03-detail-panel.png
@@ -16,8 +16,8 @@ image: /screenshots/03-detail-panel.png
   "alternateName": ["闲鱼黑话助手", "闲鱼暗语翻译", "Xianyu Dictionary"],
   "applicationCategory": "BrowserApplication",
   "operatingSystem": "Chrome, Edge, Brave",
-  "description": "Chrome 浏览器扩展，帮你搜得到、看得懂闲鱼上卖家用的黑话/暗语。15 个分类、159 词条、本地运行、零数据收集。",
-  "softwareVersion": "1.7.1",
+  "description": "Chrome 浏览器扩展，帮你搜得到、看得懂闲鱼上卖家用的黑话/暗语。16 个分类、193 词条、本地运行、零数据收集。",
+  "softwareVersion": "1.7.2",
   "url": "https://sudoo-dev.github.io/xianyu-slang-helper/",
   "downloadUrl": "https://chromewebstore.google.com/detail/%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8/kblfpfpjgbhakbjefandponpkflfjmei",
   "author": {
@@ -38,7 +38,7 @@ image: /screenshots/03-detail-panel.png
 
 > Chrome 浏览器扩展 · 解决闲鱼上**黑话/暗语**搜不到、看不懂的问题 · 完全本地运行 · 零数据收集
 
-[![Version](https://img.shields.io/badge/version-1.7.1-orange)](https://github.com/sudoo-dev/xianyu-slang-helper/releases)
+[![Version](https://img.shields.io/badge/version-1.7.2-orange)](https://github.com/sudoo-dev/xianyu-slang-helper/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/sudoo-dev/xianyu-slang-helper/blob/main/LICENSE)
 [![Stars](https://img.shields.io/github/stars/sudoo-dev/xianyu-slang-helper?style=social)](https://github.com/sudoo-dev/xianyu-slang-helper)
 
@@ -63,7 +63,7 @@ image: /screenshots/03-detail-panel.png
 
 这就是为什么直接搜"iPhone"、"茅台"经常找不到便宜货——它们的关键词都被卖家替换成了黑话。
 
-**闲鱼词典**用一份精心整理的暗语词典——**15 个分类 · 159 条目 · 489 个变体**——一次性解决这两个问题。
+**闲鱼词典**用一份精心整理的暗语词典——**16 个分类 · 193 条目 · 599 个变体**——一次性解决这两个问题。
 
 ---
 
@@ -108,7 +108,7 @@ image: /screenshots/03-detail-panel.png
 
 ### 📚 完整词典浏览
 
-15 个分类 chip 一键筛选，支持词条 / 变体双向全文搜索。
+16 个分类 chip 一键筛选，支持词条 / 变体双向全文搜索。
 
 ![词典分类浏览](screenshots/06-popup-dict.png)
 
@@ -126,20 +126,21 @@ image: /screenshots/03-detail-panel.png
 
 | 分类 | 词条数 | 黑话示例 |
 |---|---|---|
-| 📱 电子产品 | 16 | 艾疯 / 卑果 / 花为 / 大米 / 矿卡 |
+| 📱 电子产品 | 18 | 艾疯 / 卑果 / 花为 / 大米 / 矿卡 / 农企 |
 | 👜 奢侈品 | 11 | 驴牌 / 香奶奶 / 爱马屎 / 老鼠 / 绿水鬼 |
-| 🚬 烟酒 | 8 | 猫腻 / 仲华 / 拉飞 |
+| 🚬 烟酒 | 9 | 猫腻 / 仲华 / 拉飞 / 酱香科技 |
 | 👟 球鞋潮牌 | 9 | 耐磕 / 椰子 / 通货 / 纯原 / 公司级 |
-| 🎲 潮玩盲盒 | 7 | 拉布布 / 川沙妲己 / 端盒 |
-| 🐰 谷圈 / 二次元 | 23 | 谷子 / 吧唧 / 痛包 / 海景房 / 同担拒否 |
-| 🎮 游戏账号 | 8 | 农药 / 原批 / 吃鸡 |
-| 🤖 AI 服务 | 14 | 拟人 / 拼车 / 中转站 / 学生认证 |
+| 🎲 潮玩盲盒 | 8 | 拉布布 / 川沙妲己 / 端盒 |
+| 🐰 谷圈 / 二次元 | 25 | 谷子 / 吧唧 / 痛包 / 海景房 / 同担拒否 |
+| 🎮 游戏账号 | 22 | 农药 / 原批 / 吃鸡 / 老滚5 / 猛汉王 / 俄罗斯原神 |
+| 🤖 AI 服务 | 15 | 拟人 / 拼车 / 狗屁通 / closeai / 中转站 |
+| 🌐 互联网 / 数字服务 | 13 | 良心云 / 网飞 / 纸飞机 / 巨硬 / b站 / 推特 |
 | 🏷️ 成色描述 | 14 | 99 新 / 伊拉克成色 / 充新 / 战损 |
 | 💰 议价话术 | 9 | 不接受任何刀 / 小刀 / 屠龙刀 |
 | ⚠️ 防坑识别 | 6 | 女大学生自用 / 只面交 / 国行在保 |
 | 📦 渠道来源 | 4 | 年会奖品 / 水货代购 |
 | 📢 营销话术 | 5 | 白菜价 / 急出 / 清仓 |
-| 💬 交易话术 | 16 | 走闲鱼 / 秒拍 / 十动然鱼 |
+| 💬 交易话术 | 20 | 走闲鱼 / 秒拍 / 绿泡泡 / 企鹅 / 软妹币 |
 | 🃏 卡牌集换 | 5 | 端盒 / 散包 / SP |
 
 ---
@@ -181,7 +182,7 @@ image: /screenshots/03-detail-panel.png
 
 ### 这个扩展能解读哪些类型的黑话？
 
-15 个分类、159 个核心词条、489 个变体。覆盖电子产品、奢侈品、烟酒、球鞋、潮玩、谷圈、游戏账号、AI 服务、成色描述、议价话术、防坑识别、渠道来源、营销话术、交易话术、卡牌集换。
+16 个分类、193 个核心词条、599 个变体。覆盖电子产品、奢侈品、烟酒、球鞋、潮玩、谷圈、游戏账号、AI 服务、互联网/数字服务、成色描述、议价话术、防坑识别、渠道来源、营销话术、交易话术、卡牌集换。
 
 ### 词典里没有的新黑话怎么办？
 
@@ -203,7 +204,7 @@ image: /screenshots/03-detail-panel.png
 
 | 维度 | 闲鱼词典 | 一般翻译插件 |
 |---|---|---|
-| 词典体积 | 159 条 / 489 变体 | 通常 < 50 |
+| 词典体积 | 193 条 / 599 变体 | 通常 < 50 |
 | 数据上传 | 0 字节 | 通常上传搜索词做"改进" |
 | AI 兜底 | 本地 Gemini Nano（opt-in） | 通常调云端 API |
 | 自定义词典 | 支持，本地存 | 较少支持 |

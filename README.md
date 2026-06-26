@@ -1,21 +1,25 @@
 # 闲鱼词典 (Xianyu Dictionary)
 
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-%E5%AE%89%E8%A3%85%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8/kblfpfpjgbhakbjefandponpkflfjmei)
+
+> 🎉 **已上架 Chrome 应用商店** — 👉 **[点此一键安装](https://chromewebstore.google.com/detail/%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8/kblfpfpjgbhakbjefandponpkflfjmei)**
+
 Chrome / Edge 浏览器扩展，帮你解决闲鱼上的"暗语搜不到、看不懂"问题：
 
 - **搜索词翻译**：闲鱼搜索框输入正常词（`iPhone`、`茅台`、`谷子`），自动弹出对应暗语推荐，点击直接替换。
 - **暗语解读**：商品标题/描述里的暗语自动加下划线高亮，悬停看含义。
 - **独立翻译面板**：粘贴任意文本，正反向翻译，点击复制。
-- **分类浏览**：12 个分类（电子产品/奢侈品/烟酒/球鞋/潮玩/谷圈/游戏账号/成色/议价/防坑/交易/卡牌），可按分类筛选。
+- **分类浏览**：16 个分类（电子产品/奢侈品/烟酒/球鞋/潮玩/谷圈/游戏/AI 服务/互联网/成色/议价/防坑/渠道/营销/交易/卡牌），可按分类筛选。
 - **加密打包 🔒**：词典使用 AES-256-GCM 加密，scraper 无法 `grep` 出明文。
 - **跟随版本更新**：词典随插件版本更新，依赖 Chrome 自动更新机制，无需远端拉取。
 
-## v1.2.0 词典
+## 词典规模（v1.7.2）
 
-- 12 分类
-- 130 条目
-- 372 个暗语变体
+- 16 分类
+- 193 条目
+- 599 个暗语变体
 
-来源：知乎、Linux.do、X / Twitter、谷圈科普文等公开内容。**只收录二手交易类**暗语，不含涉违法暗号。
+来源：知乎、Linux.do、X / Twitter、谷圈科普文、[search-sharp.com](https://search-sharp.com) 社区众包（经质量 + 政策过滤）等公开内容。**只收录二手交易类**暗语，不含涉违法暗号。
 
 ## 加密设计
 
@@ -77,7 +81,7 @@ node tools/package.mjs
 3. 拷贝运行时文件到 `dist/xianyu-slang-helper/`，**剔除整个 tools/ 目录**
 4. 安全检查：抽样 grep 关键词，确保 dist/ 无明文泄漏
 
-最后 `cd dist && zip -r xianyu-slang-helper-v1.3.0.zip xianyu-slang-helper`，把 .zip 上传 Chrome Web Store。
+最后 `cd dist && zip -r xianyu-slang-helper-v1.7.2.zip xianyu-slang-helper`，把 .zip 上传 Chrome Web Store。
 
 ### 单独再加密（不打包）
 
@@ -87,11 +91,22 @@ node tools/package.mjs
 node tools/encrypt-dict.mjs
 ```
 
-## 安装方式（开发者模式）
+### CI 自动发布
 
-1. 打开 `chrome://extensions/`，右上角开启"开发者模式"
-2. "加载已解压的扩展程序" → 选 `xianyu-slang-helper` 文件夹
-3. 访问 [goofish.com](https://www.goofish.com/) 即可生效
+推送 `v*` tag（如 `v1.7.2`）即触发 GitHub Actions：校验版本一致 → 打包 → 上传到 Chrome Web Store（默认草稿，到后台手动 Publish）。一次性凭据配置见 [.github/RELEASING.md](.github/RELEASING.md)。
+
+## 安装方式
+
+### 方式 1：Chrome 应用商店（推荐）
+
+👉 **[从 Chrome 应用商店安装闲鱼词典](https://chromewebstore.google.com/detail/%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8/kblfpfpjgbhakbjefandponpkflfjmei)** — 点"添加至 Chrome"即可，安装后随浏览器自动更新。
+
+### 方式 2：手动加载（开发者模式）
+
+1. 到 [Releases 页面](https://github.com/sudoo-dev/xianyu-slang-helper/releases) 下载最新 `.zip` 并解压（或克隆本仓库）
+2. 打开 `chrome://extensions/`，右上角开启"开发者模式"
+3. "加载已解压的扩展程序" → 选 `xianyu-slang-helper` 文件夹
+4. 访问 [goofish.com](https://www.goofish.com/) 即可生效
 
 ## 文件结构
 
@@ -109,7 +124,8 @@ xianyu-slang-helper/
 ├── tools/                       # 仅开发期, 打包时整目录剔除
 │   ├── dictionary.source.json   # 词典源 (人类可读, 维护者编辑此处)
 │   ├── encrypt-dict.mjs         # 单独加密脚本
-│   └── package.mjs              # 发布打包脚本 (加密 + 拷贝 + 安全检查)
+│   ├── package.mjs              # 发布打包脚本 (加密 + 拷贝 + 安全检查)
+│   └── fetch-searchsharp.mjs    # 从 search-sharp.com 同步众包暗语 (sync-searchsharp skill)
 ├── dist/                        # 打包产物 (gitignored, 上传 Web Store 用)
 ├── icons/
 └── README.md
@@ -129,6 +145,7 @@ xianyu-slang-helper/
 - [可以分享你知道的闲鱼暗语吗 (Linux.do)](https://linux.do/t/topic/972037)
 - [谷圈名词科普 (知乎)](https://zhuanlan.zhihu.com/p/119634849)
 - [全是"暗语"的谷圈 (界面新闻)](https://www.jiemian.com/article/6953041.html)
+- [SearchSharp (search-sharp.com)](https://search-sharp.com) — 社区众包的叫法/别名，经质量 + 政策过滤后并入
 - [r/goofish 闲鱼暗语字典分享 (Reddit)](https://www.reddit.com/r/goofish/comments/1ps0bnt/) — 待并入（受 Reddit 反爬限制，需手工提取）
 
 ## License
