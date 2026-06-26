@@ -19,7 +19,7 @@ image: /screenshots/03-detail-panel.png
   "description": "Chrome 浏览器扩展，帮你搜得到、看得懂闲鱼上卖家用的黑话/暗语。15 个分类、159 词条、本地运行、零数据收集。",
   "softwareVersion": "1.7.1",
   "url": "https://sudoo-dev.github.io/xianyu-slang-helper/",
-  "downloadUrl": "https://github.com/sudoo-dev/xianyu-slang-helper/releases",
+  "downloadUrl": "https://chromewebstore.google.com/detail/%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8/kblfpfpjgbhakbjefandponpkflfjmei",
   "author": {
     "@type": "Organization",
     "name": "sudoo-dev",
@@ -41,6 +41,10 @@ image: /screenshots/03-detail-panel.png
 [![Version](https://img.shields.io/badge/version-1.7.1-orange)](https://github.com/sudoo-dev/xianyu-slang-helper/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/sudoo-dev/xianyu-slang-helper/blob/main/LICENSE)
 [![Stars](https://img.shields.io/github/stars/sudoo-dev/xianyu-slang-helper?style=social)](https://github.com/sudoo-dev/xianyu-slang-helper)
+
+[![安装闲鱼词典](https://img.shields.io/badge/Chrome%20Web%20Store-%E5%AE%89%E8%A3%85%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8/kblfpfpjgbhakbjefandponpkflfjmei)
+
+> 🎉 **已上架 Chrome 应用商店** — 👉 **[点此一键安装闲鱼词典](https://chromewebstore.google.com/detail/%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8/kblfpfpjgbhakbjefandponpkflfjmei)**（点"添加至 Chrome"，安装后随浏览器自动更新）
 
 ## 它解决什么问题？
 
@@ -142,9 +146,11 @@ image: /screenshots/03-detail-panel.png
 
 ## 安装
 
-### 方式 1：Chrome 应用商店（推荐，审核中）
+### 方式 1：Chrome 应用商店（推荐）
 
-待发布。
+👉 **[从 Chrome 应用商店安装闲鱼词典](https://chromewebstore.google.com/detail/%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8/kblfpfpjgbhakbjefandponpkflfjmei)**
+
+打开后点击"**添加至 Chrome**"即可，安装后随 Chrome 自动更新。
 
 ### 方式 2：手动加载（开发者模式）
 
