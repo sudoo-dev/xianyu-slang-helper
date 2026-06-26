@@ -75,15 +75,21 @@ jobs:
           echo "zip 内容顶层:"; unzip -l dist/xianyu-slang-helper.zip | head -15
 
       - name: 上传到 Chrome Web Store
-        uses: mnao305/chrome-webstore-upload@v5
-        with:
-          file-path: dist/xianyu-slang-helper.zip
-          extension-id: ${{ secrets.CHROME_EXTENSION_ID }}
-          client-id: ${{ secrets.CHROME_CLIENT_ID }}
-          client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
-          refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
-          # tag 触发 = 仅上传草稿; 手动触发可勾 publish 提交审核
-          publish: ${{ github.event_name == 'workflow_dispatch' && inputs.publish }}
+        env:
+          EXTENSION_ID: ${{ secrets.CHROME_EXTENSION_ID }}
+          CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+          DO_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && inputs.publish }}
+        run: |
+          # 无 command = upload+publish; "upload" = 仅上传草稿。creds 走环境变量。
+          if [ "$DO_PUBLISH" = "true" ]; then
+            echo "上传并提交审核 (publish)…"
+            npx -y chrome-webstore-upload-cli@3 --source dist/xianyu-slang-helper.zip
+          else
+            echo "仅上传草稿 (不提交审核, 去后台手动 Publish)…"
+            npx -y chrome-webstore-upload-cli@3 upload --source dist/xianyu-slang-helper.zip
+          fi
 
       - name: 把 zip 附到 GitHub Release
         if: github.ref_type == 'tag'
