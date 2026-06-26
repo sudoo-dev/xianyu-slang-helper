@@ -17,3 +17,7 @@ tools/searchsharp.staged.json
 # Editor
 .vscode/
 .idea/
+
+# Local secrets (CWS API creds etc.) — never commit
+.env
+*.env
