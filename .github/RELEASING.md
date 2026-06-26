@@ -11,10 +11,13 @@ Chrome Web Store 手动发布过至少一次**（拿到 extension id），且配
 
 1. 打开 [Google Cloud Console](https://console.cloud.google.com/) → 新建（或选一个）项目。
 2. **APIs & Services → Library** → 搜索 **Chrome Web Store API** → Enable。
-3. **OAuth consent screen** → 选 External → 填基本信息 → 在 *Test users* 里**加上你自己的
-   Google 账号**（就是管理扩展的那个）。
-4. **Credentials → Create Credentials → OAuth client ID** → Application type 选
-   **Desktop app** → 创建。记下 **Client ID** 和 **Client secret**。
+3. 配置 OAuth（新版叫 **Google Auth Platform**，已没有单独的 “OAuth consent screen” 页）：
+   点 **Get started** → *App Information* 填应用名 + 支持邮箱 → ***Audience* 这一步选 `External`**
+   （“External” 现在藏在这里；`Internal` 仅 Google Workspace 组织账号才有）→ 填联系邮箱 →
+   同意 → 创建。完成后到左侧 **Audience → Test users → Add users**，把你管理扩展的那个
+   Google 账号加进去（Testing 模式下只有测试用户能完成下一步授权）。
+4. 左侧 **Clients → Create client** → Application type 选 **Desktop app** → 创建 →
+   记下 **Client ID** 和 **Client secret**。
 5. 换取 **refresh token**——最省事的方式，本地跑官方助手按提示操作：
    ```bash
    npx -y chrome-webstore-upload-keys
