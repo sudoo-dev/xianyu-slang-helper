@@ -34,6 +34,40 @@ image: /screenshots/03-detail-panel.png
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "什么是闲鱼黑话？",
+      "acceptedAnswer": { "@type": "Answer", "text": "闲鱼黑话是卖家用来规避平台关键词过滤的隐讳表达——通常是谐音（猫腻=茅台）、缩写（AJ=Air Jordan）、绰号（驴牌=LV）或圈内行话（谷子=二次元周边）。" }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么闲鱼上有这么多黑话？",
+      "acceptedAnswer": { "@type": "Answer", "text": "主要四个原因：品牌词被平台限制；用黑话能找到竞争少的漏；谷圈卡圈潮玩圈有自己的行话形成圈层认同；以及防止商品被外部搜索引擎和爬虫收录。" }
+    },
+    {
+      "@type": "Question",
+      "name": "这个扩展能解读哪些类型的黑话？",
+      "acceptedAnswer": { "@type": "Answer", "text": "16 个分类、193 个核心词条、599 个变体，覆盖电子产品、奢侈品、烟酒、球鞋、潮玩、谷圈、游戏账号、AI 服务、互联网/数字服务、成色描述、议价话术、防坑识别、渠道来源、营销话术、交易话术、卡牌集换。" }
+    },
+    {
+      "@type": "Question",
+      "name": "安全吗？会上传我的搜索记录吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "完全本地运行。本插件不发起任何网络请求，不集成任何统计埋点，仅开关偏好和自定义词条存在浏览器本地存储中，永不与服务器同步。" }
+    },
+    {
+      "@type": "Question",
+      "name": "词典里没有的新黑话怎么办？",
+      "acceptedAnswer": { "@type": "Answer", "text": "可以在插件「我的」标签本地添加自定义词条（永不上传），也可以在 GitHub Issues 提交给社区，审核后会并入下个版本。" }
+    }
+  ]
+}
+</script>
+
 # 🐟 闲鱼词典 — 一秒读懂卖家的黑话/暗语
 
 > Chrome 浏览器扩展 · 解决闲鱼上**黑话/暗语**搜不到、看不懂的问题 · 完全本地运行 · 零数据收集
@@ -45,6 +79,15 @@ image: /screenshots/03-detail-panel.png
 [![安装闲鱼词典](https://img.shields.io/badge/Chrome%20Web%20Store-%E5%AE%89%E8%A3%85%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8/kblfpfpjgbhakbjefandponpkflfjmei)
 
 > 🎉 **已上架 Chrome 应用商店** — 👉 **[点此一键安装闲鱼词典](https://chromewebstore.google.com/detail/%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8/kblfpfpjgbhakbjefandponpkflfjmei)**（点"添加至 Chrome"，安装后随浏览器自动更新）
+
+> 📖 遇到看不懂的词？先查 **[闲鱼黑话大全（2026 持续更新）](heihua/)**
+
+## 📑 目录
+{: .no_toc }
+
+{::options toc_levels="2" /}
+* TOC
+{:toc}
 
 ## 它解决什么问题？
 
@@ -73,19 +116,19 @@ image: /screenshots/03-detail-panel.png
 
 在闲鱼搜索框输入正常关键词（如 `iPhone`），自动弹出对应黑话推荐（`艾疯/i疯/爱疯`），点击直接替换搜索词，瞬间提升能搜到的商品数。
 
-![搜索建议气泡 - 闲鱼黑话翻译](screenshots/01-search-popup.png)
+![搜索建议气泡 - 闲鱼黑话翻译](screenshots/01-search-popup.png){: loading="lazy" }
 
 ### ✨ 浏览商品时自动解读黑话
 
 商品标题和描述里的暗语会自动加下划线高亮。鼠标悬停就显示真实含义，不再需要专门去搜"XX 是什么意思"。
 
-![商品列表黑话高亮 - 闲鱼暗语翻译](screenshots/02-listing-highlights.png)
+![商品列表黑话高亮 - 闲鱼暗语翻译](screenshots/02-listing-highlights.png){: loading="lazy" }
 
 ### 📋 一键查看本页全部暗语
 
 右下角浮动按钮显示本页检测到的黑话数量。点击展开侧滑面板，按出现频次排列，**点击条目可定位到第一次出现的位置**。
 
-![本页黑话清单 - 闲鱼词典](screenshots/03-detail-panel.png)
+![本页黑话清单 - 闲鱼词典](screenshots/03-detail-panel.png){: loading="lazy" }
 
 ### 💬 独立翻译面板
 
@@ -94,7 +137,7 @@ image: /screenshots/03-detail-panel.png
 - **正向**（→ 转暗语）：输入"iPhone 茅台"，得到所有黑话变体
 - **反向**（← 解读暗语）：粘贴商品描述，自动标出所有黑话
 
-![双向翻译面板](screenshots/04-popup-translate.png)
+![双向翻译面板](screenshots/04-popup-translate.png){: loading="lazy" }
 
 ### 📝 自定义词典（本地）
 
@@ -104,13 +147,13 @@ image: /screenshots/03-detail-panel.png
 - 与内置词典视觉区分（**蓝色** vs 内置橙色）
 - 数据**永不上传**，只存你的浏览器
 
-![自定义黑话词典](screenshots/05-popup-custom.png)
+![自定义黑话词典](screenshots/05-popup-custom.png){: loading="lazy" }
 
 ### 📚 完整词典浏览
 
 16 个分类 chip 一键筛选，支持词条 / 变体双向全文搜索。
 
-![词典分类浏览](screenshots/06-popup-dict.png)
+![词典分类浏览](screenshots/06-popup-dict.png){: loading="lazy" }
 
 ### 🤖 可选本地 AI 兜底
 
@@ -143,6 +186,8 @@ image: /screenshots/03-detail-panel.png
 | 💬 交易话术 | 20 | 走闲鱼 / 秒拍 / 绿泡泡 / 企鹅 / 软妹币 |
 | 🃏 卡牌集换 | 5 | 端盒 / 散包 / SP |
 
+👉 常见词的含义详解（免安装可查）：**[闲鱼黑话大全（2026 持续更新）](heihua/)**
+
 ---
 
 ## 安装
@@ -170,7 +215,7 @@ image: /screenshots/03-detail-panel.png
 
 ### 什么是闲鱼黑话？
 
-闲鱼黑话是卖家用来**规避平台关键词过滤**的隐讳表达——通常是谐音（如"猫腻" = 茅台）、缩写（如"AJ" = Air Jordan）、绰号（如"驴牌" = LV）或圈内行话（如"谷子" = 二次元周边）。
+闲鱼黑话是卖家用来**规避平台关键词过滤**的隐讳表达——通常是谐音（如"猫腻" = 茅台）、缩写（如"AJ" = Air Jordan）、绰号（如"驴牌" = LV）或圈内行话（如"谷子" = 二次元周边）。常见词的完整解释见 **[闲鱼黑话大全](heihua/)**。
 
 ### 为什么闲鱼上有这么多黑话？
 
