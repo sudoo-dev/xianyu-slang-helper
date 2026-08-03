@@ -18,7 +18,18 @@ Chrome Web Store 手动发布过至少一次**（拿到 extension id），且配
    Google 账号加进去（Testing 模式下只有测试用户能完成下一步授权）。
 4. 左侧 **Clients → Create client** → Application type 选 **Desktop app** → 创建 →
    记下 **Client ID** 和 **Client secret**。
-5. 换取 **refresh token**——最省事的方式，本地跑官方助手按提示操作：
+5. **把 OAuth 应用发布到生产**（别跳过，否则 token 一周就废）：
+   左侧 **Audience** → **Publish app**，把 Publishing status 从 `Testing` 改成 `In production`。
+
+   > Google 的规则：**External + Testing** 状态下签发的 refresh token **7 天后过期**。
+   > 只发过一次版就再也传不上去，基本都是这个原因。改成 In production 后 token 不再定期过期
+   > （除非你主动撤销、连续 6 个月未使用、或同一账号对同一 client 的 token 超过 100 个）。
+   >
+   > 这个扩展只有你自己在用这套凭据，所以**不需要**走 Google 的应用验证（verification）。
+   > 未验证应用在授权时会多一屏 “Google hasn't verified this app”，点
+   > **Advanced → Go to ... (unsafe)** 继续即可，不影响使用。
+
+6. 换取 **refresh token**——最省事的方式，本地跑官方助手按提示操作：
    ```bash
    npx -y chrome-webstore-upload-keys
    ```
@@ -56,6 +67,33 @@ Chrome Web Store 开发者后台 → 选中你的扩展 → URL 里 `.../detail/
 
 > **想跳过手动点发布**：在 Actions 页手动运行本工作流（workflow_dispatch），勾上 `publish=true`，
 > CI 会直接提交审核。**但**这会把内容直接送审/上线，建议仅在你已本地 `git diff` 过词典后使用。
+
+---
+
+## 排障
+
+### CI 报 `invalid_grant` / `Error: Bad Request`
+
+refresh token 失效了。工作流有一步「预检 refresh token」会提前拦下并打印这条错误，
+构建不会白跑。修法：
+
+1. 先确认 OAuth 应用的 Publishing status 是 **In production** 而不是 Testing
+   （Google Auth Platform → Audience）。Testing 状态签发的 token **7 天就过期**，
+   不改这里，换多少次新 token 都是一周后再挂一次。
+2. 重新换一个 token 并更新 Secret `CHROME_REFRESH_TOKEN`：
+   ```bash
+   npx -y chrome-webstore-upload-keys
+   ```
+3. 回 Actions 页面 **Re-run failed jobs**（tag 已经在，不用重新打 tag）。
+
+其他会让 refresh token 失效的情况：手动撤销了应用授权、连续 6 个月没用过、
+同一 Google 账号对同一 OAuth client 的 token 超过 100 个（最旧的会被静默作废）。
+
+### 上传挂了但我想先手动传
+
+不用重跑构建。打包好的 zip 在 **Actions run 页面底部的 Artifacts**
+（`xianyu-slang-helper-v<版本>`，保留 30 天），下载后直接传开发者后台即可 ——
+它的 `manifest.json` 已经在 zip 根目录，符合商店要求。
 
 ---
 

@@ -64,6 +64,33 @@ jobs:
             echo "::error::缺少 Secrets:$missing —— 配置方法见 .github/RELEASING.md"; exit 1
           fi
 
+      # refresh token 失效是这条流水线最常见的失败原因, 且 chrome-webstore-upload-cli
+      # 只会吐一句 "Error: Bad Request" + 一段堆栈, 完全看不出是凭据问题。
+      # 这里提前换一次 access token, 把 invalid_grant 变成可执行的错误提示,
+      # 顺便省掉后面白跑的构建。
+      - name: 预检 refresh token
+        env:
+          CID: ${{ secrets.CHROME_CLIENT_ID }}
+          CSECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          RTOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+        run: |
+          resp=$(curl -sS -X POST https://oauth2.googleapis.com/token \
+            -d client_id="$CID" \
+            -d client_secret="$CSECRET" \
+            -d refresh_token="$RTOKEN" \
+            -d grant_type=refresh_token) || true
+          if printf '%s' "$resp" | grep -q '"access_token"'; then
+            echo "✓ refresh token 有效"
+            exit 0
+          fi
+          echo "OAuth 响应: $(printf '%s' "$resp" | tr -d '\n')"
+          if printf '%s' "$resp" | grep -q 'invalid_grant'; then
+            echo "::error::refresh token 已失效 (invalid_grant)。最常见原因: OAuth 应用仍是 Testing 状态——此时 Google 签发的 refresh token 只有 7 天有效期。根治办法: Google Auth Platform → Audience → Publish app, 把状态从 Testing 改成 In production; 再跑 npx -y chrome-webstore-upload-keys 换新 token 并更新 Secret CHROME_REFRESH_TOKEN。详见 .github/RELEASING.md"
+          else
+            echo "::error::用 refresh token 换 access token 失败, 见上面的 OAuth 响应。配置说明见 .github/RELEASING.md"
+          fi
+          exit 1
+
       - name: 构建扩展包 (加密 + 安全检查)
         run: node tools/package.mjs
 
@@ -73,6 +100,15 @@ jobs:
           zip -qr ../xianyu-slang-helper.zip .
           cd ../..
           echo "zip 内容顶层:"; unzip -l dist/xianyu-slang-helper.zip | head -15
+
+      # 先存档再上传: 即使商店上传挂了, 也能从 run 页面下载这个 zip 手动传,
+      # 不用为了拿包重跑一遍构建。
+      - name: 存档 zip (供手动上传兜底)
+        uses: actions/upload-artifact@v4
+        with:
+          name: xianyu-slang-helper-${{ github.ref_name }}
+          path: dist/xianyu-slang-helper.zip
+          retention-days: 30
 
       - name: 上传到 Chrome Web Store
         env:
