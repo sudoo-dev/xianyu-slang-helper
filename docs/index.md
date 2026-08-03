@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 闲鱼词典 · 闲鱼黑话/暗语翻译 Chrome 扩展
-description: 一秒读懂闲鱼黑话！Chrome 插件帮你搜得到、看得懂卖家用的谐音/缩写/绰号。16 个分类、193 词条、本地运行、零数据收集。
+description: 一秒读懂闲鱼黑话！Chrome 插件帮你搜得到、看得懂卖家用的谐音/缩写/绰号。16 个分类、206 词条、本地运行、零数据收集。
 keywords: 闲鱼黑话, 闲鱼暗语, 闲鱼词典, 闲鱼翻译, 黑话翻译, 闲鱼搜索, 闲鱼插件, 二手交易黑话, goofish, xianyu
 permalink: /
 image: /screenshots/03-detail-panel.png
@@ -16,8 +16,8 @@ image: /screenshots/03-detail-panel.png
   "alternateName": ["闲鱼黑话助手", "闲鱼暗语翻译", "Xianyu Dictionary"],
   "applicationCategory": "BrowserApplication",
   "operatingSystem": "Chrome, Edge, Brave",
-  "description": "Chrome 浏览器扩展，帮你搜得到、看得懂闲鱼上卖家用的黑话/暗语。16 个分类、193 词条、本地运行、零数据收集。",
-  "softwareVersion": "1.7.2",
+  "description": "Chrome 浏览器扩展，帮你搜得到、看得懂闲鱼上卖家用的黑话/暗语。16 个分类、206 词条、本地运行、零数据收集。",
+  "softwareVersion": "1.7.3",
   "url": "https://sudoo-dev.github.io/xianyu-slang-helper/",
   "downloadUrl": "https://chromewebstore.google.com/detail/%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8/kblfpfpjgbhakbjefandponpkflfjmei",
   "author": {
@@ -52,7 +52,7 @@ image: /screenshots/03-detail-panel.png
     {
       "@type": "Question",
       "name": "这个扩展能解读哪些类型的黑话？",
-      "acceptedAnswer": { "@type": "Answer", "text": "16 个分类、193 个核心词条、599 个变体，覆盖电子产品、奢侈品、烟酒、球鞋、潮玩、谷圈、游戏账号、AI 服务、互联网/数字服务、成色描述、议价话术、防坑识别、渠道来源、营销话术、交易话术、卡牌集换。" }
+      "acceptedAnswer": { "@type": "Answer", "text": "16 个分类、206 个核心词条、674 个变体，覆盖电子产品、奢侈品、烟酒、球鞋、潮玩、谷圈、游戏账号、AI 服务、互联网/数字服务、成色描述、议价话术、防坑识别、渠道来源、营销话术、交易话术、卡牌集换。" }
     },
     {
       "@type": "Question",
@@ -72,7 +72,7 @@ image: /screenshots/03-detail-panel.png
 
 > Chrome 浏览器扩展 · 解决闲鱼上**黑话/暗语**搜不到、看不懂的问题 · 完全本地运行 · 零数据收集
 
-[![Version](https://img.shields.io/badge/version-1.7.2-orange)](https://github.com/sudoo-dev/xianyu-slang-helper/releases)
+[![Version](https://img.shields.io/badge/version-1.7.3-orange)](https://github.com/sudoo-dev/xianyu-slang-helper/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/sudoo-dev/xianyu-slang-helper/blob/main/LICENSE)
 [![Stars](https://img.shields.io/github/stars/sudoo-dev/xianyu-slang-helper?style=social)](https://github.com/sudoo-dev/xianyu-slang-helper)
 
@@ -106,7 +106,7 @@ image: /screenshots/03-detail-panel.png
 
 这就是为什么直接搜"iPhone"、"茅台"经常找不到便宜货——它们的关键词都被卖家替换成了黑话。
 
-**闲鱼词典**用一份精心整理的暗语词典——**16 个分类 · 193 条目 · 599 个变体**——一次性解决这两个问题。
+**闲鱼词典**用一份精心整理的暗语词典——**16 个分类 · 206 条目 · 674 个变体**——一次性解决这两个问题。
 
 ---
 
@@ -227,7 +227,7 @@ image: /screenshots/03-detail-panel.png
 
 ### 这个扩展能解读哪些类型的黑话？
 
-16 个分类、193 个核心词条、599 个变体。覆盖电子产品、奢侈品、烟酒、球鞋、潮玩、谷圈、游戏账号、AI 服务、互联网/数字服务、成色描述、议价话术、防坑识别、渠道来源、营销话术、交易话术、卡牌集换。
+16 个分类、206 个核心词条、674 个变体。覆盖电子产品、奢侈品、烟酒、球鞋、潮玩、谷圈、游戏账号、AI 服务、互联网/数字服务、成色描述、议价话术、防坑识别、渠道来源、营销话术、交易话术、卡牌集换。
 
 ### 词典里没有的新黑话怎么办？
 
@@ -249,7 +249,7 @@ image: /screenshots/03-detail-panel.png
 
 | 维度 | 闲鱼词典 | 一般翻译插件 |
 |---|---|---|
-| 词典体积 | 193 条 / 599 变体 | 通常 < 50 |
+| 词典体积 | 206 条 / 674 变体 | 通常 < 50 |
 | 数据上传 | 0 字节 | 通常上传搜索词做"改进" |
 | AI 兜底 | 本地 Gemini Nano（opt-in） | 通常调云端 API |
 | 自定义词典 | 支持，本地存 | 较少支持 |

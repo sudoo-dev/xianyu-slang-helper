@@ -13,11 +13,11 @@ Chrome / Edge 浏览器扩展，帮你解决闲鱼上的"暗语搜不到、看�
 - **加密打包 🔒**：词典使用 AES-256-GCM 加密，scraper 无法 `grep` 出明文。
 - **跟随版本更新**：词典随插件版本更新，依赖 Chrome 自动更新机制，无需远端拉取。
 
-## 词典规模（v1.7.2）
+## 词典规模（v1.7.3）
 
 - 16 分类
-- 193 条目
-- 599 个暗语变体
+- 206 条目
+- 674 个暗语变体
 
 来源：知乎、Linux.do、X / Twitter、谷圈科普文、[search-sharp.com](https://search-sharp.com) 社区众包（经质量 + 政策过滤）等公开内容。**只收录二手交易类**暗语，不含涉违法暗号。
 
@@ -81,7 +81,7 @@ node tools/package.mjs
 3. 拷贝运行时文件到 `dist/xianyu-slang-helper/`，**剔除整个 tools/ 目录**
 4. 安全检查：抽样 grep 关键词，确保 dist/ 无明文泄漏
 
-最后 `cd dist && zip -r xianyu-slang-helper-v1.7.2.zip xianyu-slang-helper`，把 .zip 上传 Chrome Web Store。
+最后 `cd dist && zip -r xianyu-slang-helper-v1.7.3.zip xianyu-slang-helper`，把 .zip 上传 Chrome Web Store。
 
 ### 单独再加密（不打包）
 
@@ -93,7 +93,7 @@ node tools/encrypt-dict.mjs
 
 ### CI 自动发布
 
-推送 `v*` tag（如 `v1.7.2`）即触发 GitHub Actions：校验版本一致 → 打包 → 上传到 Chrome Web Store（默认草稿，到后台手动 Publish）。一次性凭据配置见 [.github/RELEASING.md](.github/RELEASING.md)。
+推送 `v*` tag（如 `v1.7.3`）即触发 GitHub Actions：校验版本一致 → 打包 → 上传到 Chrome Web Store（默认草稿，到后台手动 Publish）。一次性凭据配置见 [.github/RELEASING.md](.github/RELEASING.md)。
 
 ## 安装方式
 
