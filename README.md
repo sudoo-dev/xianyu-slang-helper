@@ -81,7 +81,14 @@ node tools/package.mjs
 3. 拷贝运行时文件到 `dist/xianyu-slang-helper/`，**剔除整个 tools/ 目录**
 4. 安全检查：抽样 grep 关键词，确保 dist/ 无明文泄漏
 
-最后 `cd dist && zip -r xianyu-slang-helper-v1.7.3.zip xianyu-slang-helper`，把 .zip 上传 Chrome Web Store。
+最后打 zip 上传 Chrome Web Store。**必须在包目录内部打包**——`manifest.json` 要在 zip 根目录，
+外面多套一层目录商店会直接拒收：
+
+```bash
+cd dist/xianyu-slang-helper && zip -qr ../xianyu-slang-helper-v1.7.3.zip .
+```
+
+（走 tag 触发 CI 发版的话这步不用管，工作流已经这么打了。）
 
 ### 单独再加密（不打包）
 

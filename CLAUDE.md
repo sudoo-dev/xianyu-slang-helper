@@ -24,7 +24,9 @@ node tools/encrypt-dict.mjs
 
 # Full release package → dist/xianyu-slang-helper/ (encrypt + copy + safety checks):
 node tools/package.mjs
-cd dist && zip -r xianyu-slang-helper-v<version>.zip xianyu-slang-helper   # upload to Web Store
+# Zip MUST be built from INSIDE the package dir — manifest.json has to sit at the zip root
+# or the Web Store rejects the upload. (CI already does it this way.)
+cd dist/xianyu-slang-helper && zip -qr ../xianyu-slang-helper-v<version>.zip .
 
 # Import crowd-sourced slang from search-sharp.com (preview first, never blind-merge):
 node tools/fetch-searchsharp.mjs               # fetch + quality/policy filter → tools/searchsharp.staged.json

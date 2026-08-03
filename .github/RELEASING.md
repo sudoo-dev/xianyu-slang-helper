@@ -18,6 +18,14 @@ Chrome Web Store 手动发布过至少一次**（拿到 extension id），且配
    Google 账号加进去（Testing 模式下只有测试用户能完成下一步授权）。
 4. 左侧 **Clients → Create client** → Application type 选 **Desktop app** → 创建 →
    记下 **Client ID** 和 **Client secret**。
+
+   > **别选 "Chrome Extension"**——名字最像，用途完全不同：那个是给扩展内部用
+   > `chrome.identity` 让**终端用户**登录 Google 的，绑定 extension ID 且不给 client secret。
+   > 这里要的是 CI 以**你自己开发者身份**调 API，必须是 **Desktop app**（带 secret，
+   > 且默认允许 loopback 回调，下一步的取 token 工具正是靠这个）。
+   >
+   > Google 官方文档里写的是 "Web application"，那是配合 OAuth Playground 手动换 token 的
+   > 另一条路线，需要注册固定 redirect URI，跟这里用的工具对不上，别混着抄。
 5. **把 OAuth 应用发布到生产**（别跳过，否则 token 一周就废）：
    左侧 **Audience** → **Publish app**，把 Publishing status 从 `Testing` 改成 `In production`。
 
@@ -33,7 +41,11 @@ Chrome Web Store 手动发布过至少一次**（拿到 extension id），且配
    ```bash
    npx -y chrome-webstore-upload-keys
    ```
-   它会引导你用浏览器授权，最后打印出 refresh token。（手动 curl 流程也行，但这个最快。）
+   它会引导你用浏览器授权，最后把 **client ID / client secret / refresh token 三个值一起打印**。
+
+   > refresh token 是**绑定在特定 OAuth client 上**的。如果这轮你新建了 client，
+   > 那 `CHROME_CLIENT_ID` 和 `CHROME_CLIENT_SECRET` 也得跟着一起换，
+   > 只更新 refresh token 照样会 `invalid_grant`。拿不准就三个一起更新。
 
 ### 2. 拿到 extension id
 
