@@ -170,6 +170,6 @@ permalink: /heihua/
 
 ### 🐟 一次装好，永久不用查表
 
-**[闲鱼词典](../)** Chrome 扩展把这份词典装进浏览器：搜索时自动建议黑话变体、浏览时自动解读标题里的暗语，词库加密内置、零联网、零数据收集。
+**[闲鱼词典](../)** Chrome 扩展把这份词典装进浏览器：搜索时自动建议黑话变体、浏览时自动解读标题里的暗语，词库随扩展内置、零联网、零数据收集。
 
 👉 [从 Chrome 应用商店安装](https://chromewebstore.google.com/detail/%E9%97%B2%E9%B1%BC%E8%AF%8D%E5%85%B8/kblfpfpjgbhakbjefandponpkflfjmei) · [了解全部功能](../)

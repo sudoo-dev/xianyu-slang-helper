@@ -254,7 +254,6 @@ image: /screenshots/03-detail-panel.png
 | AI 兜底 | 本地 Gemini Nano（opt-in） | 通常调云端 API |
 | 自定义词典 | 支持，本地存 | 较少支持 |
 | 详情页解读 | 浮动 FAB + 侧滑全览 | 仅悬停 tooltip |
-| 加密词典防爬 | 是 | 否 |
 | 开源 | 是（MIT） | 通常闭源 |
 
 ---
