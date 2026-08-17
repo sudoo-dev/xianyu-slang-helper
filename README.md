@@ -11,7 +11,7 @@ Chrome / Edge 浏览器扩展，帮你解决闲鱼上的"暗语搜不到、看�
 - **搜索词翻译**：闲鱼搜索框输入正常词（`iPhone`、`茅台`、`谷子`），自动弹出对应暗语推荐，点击直接替换。
 - **暗语解读**：商品标题/描述里的暗语自动加下划线高亮，悬停看含义。
 - **独立翻译面板**：粘贴任意文本，正反向翻译，点击复制。
-- **分类浏览**：16 个分类（电子产品/奢侈品/烟酒/球鞋/潮玩/谷圈/游戏/AI 服务/互联网/成色/议价/防坑/渠道/营销/交易/卡牌），可按分类筛选。
+- **分类浏览**：21 个分类（电子产品/奢侈品/烟酒/球鞋/潮玩/谷圈/游戏/AI 服务/互联网/虚拟商品/账号交易/站外引流/刷单任务/成色/议价/防坑/渠道/营销/交易/卡牌），可按分类筛选。
 - **自定义词条**：自己加的词只存在本地，永不上传。
 - **跟随版本更新**：词典随插件版本更新，依赖 Chrome 自动更新机制，无需远端拉取。
 
@@ -35,9 +35,9 @@ Chrome / Edge 浏览器扩展，帮你解决闲鱼上的"暗语搜不到、看�
 - **生效域名限制**：仅在 goofish.com / xianyu.com / 2.taobao.com 三个域名运行
 - **本地存储**：仅开关偏好和你的自定义词条，存在 `chrome.storage.local`，永不同步
 
-## 词典规模（v1.7.3）
+## 词典规模（v1.8.0）
 
-16 分类 · 206 条目 · 674 个暗语变体
+21 分类 · 243 条目 · 819 个暗语变体
 
 来源：知乎、Linux.do、X / Twitter、谷圈科普文、[search-sharp.com](https://search-sharp.com) 社区众包（经质量 + 政策过滤）等公开内容。**只收录二手交易类**暗语，不含涉违法暗号。
 
@@ -90,14 +90,14 @@ node tools/package.mjs
 打 zip 时**必须在包目录内部打包**——`manifest.json` 要在 zip 根目录，外面多套一层目录商店会直接拒收：
 
 ```bash
-cd dist/xianyu-slang-helper && zip -qr ../xianyu-slang-helper-v1.7.3.zip .
+cd dist/xianyu-slang-helper && zip -qr ../xianyu-slang-helper-v1.8.0.zip .
 ```
 
 只想跑一次加密、不要 `dist/`：`node tools/encrypt-dict.mjs`。
 
 ### CI 自动发布
 
-推送 `v*` tag（如 `v1.7.3`）即触发 GitHub Actions：校验版本一致 → 打包 → 上传到 Chrome Web Store（默认草稿，到后台手动 Publish）。上面的手动打包步骤走 CI 就不用管。一次性凭据配置见 [.github/RELEASING.md](.github/RELEASING.md)。
+推送 `v*` tag（如 `v1.8.0`）即触发 GitHub Actions：校验版本一致 → 打包 → 上传到 Chrome Web Store（默认草稿，到后台手动 Publish）。上面的手动打包步骤走 CI 就不用管。一次性凭据配置见 [.github/RELEASING.md](.github/RELEASING.md)。
 
 ### 文件结构
 
