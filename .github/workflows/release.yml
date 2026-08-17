@@ -27,11 +27,11 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
 
       - name: 校验版本一致 (tag == manifest == source)
         run: |
@@ -104,7 +104,7 @@ jobs:
       # 先存档再上传: 即使商店上传挂了, 也能从 run 页面下载这个 zip 手动传,
       # 不用为了拿包重跑一遍构建。
       - name: 存档 zip (供手动上传兜底)
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: xianyu-slang-helper-${{ github.ref_name }}
           path: dist/xianyu-slang-helper.zip
@@ -129,7 +129,7 @@ jobs:
 
       - name: 把 zip 附到 GitHub Release
         if: github.ref_type == 'tag'
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: dist/xianyu-slang-helper.zip
           generate_release_notes: true
