@@ -181,26 +181,45 @@
   }
 
   const CJK_RE = /[㐀-鿿]/;
+  const ASCII_LETTER_RE = /[A-Za-z]/;
+  const ASCII_ALNUM_RE = /[A-Za-z0-9]/;
 
-  const ALNUM_RE = /[A-Za-z0-9]/;
-
-  // 跳过明显是复合词一部分的短词匹配
-  // - 1 字 CJK 在中文复合词中: 如 "山谷" 里的 "谷"
-  // - ≤3 字 Latin/数字 在更长词中: 如 "iPhone" 里的 "ip"
-  // 2 字以上 CJK 合法暗语 (如 "勿扰" "小刀") 不受影响
+  // 精准上下文边界检测：跳过明显是正常单词子串或特定上下文的部分匹配
+  // 1. 纯英文字母/拼音暗语 (如 by, ip, wtb, lol, mha, ys, ns, sup):
+  //    前后不能紧挨其他英文字母 (防止匹配 standby, copy, laptop, iPhone 等正常单词子串)
+  // 2. 字母+数字型号暗语 (如 a73, p5, bf4, 4o, o1):
+  //    前后不能紧挨字母或数字 (防止 a73 误伤 a7300, p5 误伤 p50)
+  // 3. 符号类暗号 (如 a/):
+  //    避免在 URL / 路径中误报 (如 https://... 或 /a/b)
+  // 4. 单字 CJK (如用户自定义词条):
+  //    前后若为连续汉字则跳过复合词
   function shouldSkipMatch(text, idx, slang) {
     const before = idx > 0 ? text[idx - 1] : "";
     const after = idx + slang.length < text.length ? text[idx + slang.length] : "";
 
+    // 纯字母缩写
+    if (/^[A-Za-z]+$/.test(slang)) {
+      if (ASCII_LETTER_RE.test(before) || ASCII_LETTER_RE.test(after)) return true;
+    }
+    // 字母数字混合型号
+    else if (/^[A-Za-z0-9]+$/.test(slang)) {
+      if (ASCII_ALNUM_RE.test(before) || ASCII_ALNUM_RE.test(after)) return true;
+    }
+
+    // URL / 文件路径防护 (如 a/)
+    if (slang.includes("/")) {
+      if (before === "/" || before === ":" || before === "." || after === "/" || after === "\\") {
+        return true;
+      }
+    }
+
+    // 单字汉字复合词防护 (兜底保护)
     if (slang.length === 1 && CJK_RE.test(slang)) {
-      return CJK_RE.test(before) || CJK_RE.test(after);
+      if (CJK_RE.test(before) || CJK_RE.test(after)) return true;
     }
-    if (slang.length <= 3 && /^[A-Za-z0-9]+$/.test(slang)) {
-      return ALNUM_RE.test(before) || ALNUM_RE.test(after);
-    }
+
     return false;
   }
-
   function annotateNode(textNode) {
     if (!_slangRegex || !_reverse) return;
     const text = textNode.nodeValue;

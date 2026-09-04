@@ -35,9 +35,9 @@ Chrome / Edge 浏览器扩展，帮你解决闲鱼上的"暗语搜不到、看�
 - **生效域名限制**：仅在 goofish.com / xianyu.com / 2.taobao.com 三个域名运行
 - **本地存储**：仅开关偏好和你的自定义词条，存在 `chrome.storage.local`，永不同步
 
-## 词典规模（v1.8.0）
+## 词典规模（v1.9.0）
 
-21 分类 · 243 条目 · 819 个暗语变体
+21 分类 · 250 条目 · 896 个暗语变体
 
 来源：知乎、Linux.do、X / Twitter、谷圈科普文、[search-sharp.com](https://search-sharp.com) 社区众包（经质量 + 政策过滤）等公开内容。**只收录二手交易类**暗语，不含涉违法暗号。
 
